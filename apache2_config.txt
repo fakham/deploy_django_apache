@@ -1,0 +1,14 @@
+Alias /static /home/fakham/MyProject/TestProject/static
+<Directory /home/fakham/MyProject/TestProject/static>
+    Require all granted
+</Directory>
+
+<Directory /home/fakham/MyProject/TestProject/TestProject>
+    <Files wsgi.py>
+        Require all granted
+    </Files>
+</Directory>
+
+WSGIDaemonProcess TestProject python-home=/home/fakham/MyProject/myenv python-path=/home/fakham/MyProject/TestProject
+WSGIProcessGroup TestProject
+WSGIScriptAlias / /home/fakham/MyProject/TestProject/TestProject/wsgi.py
